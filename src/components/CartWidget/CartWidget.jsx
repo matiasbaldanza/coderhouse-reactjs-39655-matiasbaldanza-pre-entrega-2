@@ -1,7 +1,7 @@
 import React from 'react'
 import { pluralize } from '../../utils/textUtils'
 
-function CartWidget ({ cart }) {
+function CartWidget ({ cart, onClick }) {
   const { cantItems, items, subTotal } = cart
 
   return (
@@ -21,7 +21,12 @@ function CartWidget ({ cart }) {
           <span className='text-lg font-bold'>{pluralize(cantItems, 'artículo')}</span>
           <span className='text-info'>Subtotal: $ {subTotal}</span>
           <div className='card-actions'>
-            <button className='btn btn-primary btn-block'>Ver carrito</button>
+            <button
+              className='btn btn-primary btn-block'
+              onClick={onClick && onClick}
+            >
+              Ver carrito
+            </button>
           </div>
         </div>
       </div>
